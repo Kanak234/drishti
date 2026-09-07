@@ -1,6 +1,10 @@
-"""Quick smoke tests: python test_core.py"""
+import os
 import time
 import pandas as pd
+
+if not os.path.exists("data/crime_records.csv"):
+    import generate_data
+    generate_data.main()
 
 t0 = time.time()
 df = pd.read_csv("data/crime_records.csv", parse_dates=["DateTime"])

@@ -184,6 +184,8 @@ def main():
     df["Month"] = df["DateTime"].dt.month
     df["Year"] = df["DateTime"].dt.year
 
+    import os
+    os.makedirs("data", exist_ok=True)
     df.to_csv("data/crime_records.csv", index=False)
     print(f"Generated {len(df):,} synthetic records "
           f"({df['DateTime'].min()} -> {df['DateTime'].max()})")
